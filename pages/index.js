@@ -1,75 +1,191 @@
 import Link from 'next/link';
 import Head from '../components/head';
-import Nav from '../components/nav';
 
 export default () => (
   <div>
-    <Head title="Home" />
-    <Nav />
-    <div className="hero">
-      <h1 className="title">Welcome to Create Next App (Create Next.js App building tools)</h1>
-      <p className="description">To get started, edit <code>pages/index.js</code> and save to reload.</p>
-      <div className="row">
-        <Link href="//nextjs.org/docs/">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next.js on official website</p>
-          </a>
-        </Link>
-        <Link href="//github.com/create-next-app/create-next-app">
-          <a className="card">
-            <h3>Create Next App&rarr;</h3>
-            <p>Was this tools helpful?</p>
-          </a>
-        </Link>
+    <Head>
+      <title>Home</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </Head>
+
+   <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div className="container">
+      <a className="navbar-brand" href="#">Start Bootstrap</a>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarResponsive">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item active">
+            <a className="nav-link" href="#">Home
+              <span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">About</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Services</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        padding-bottom: 12px;
-        line-height: 1.15;
-        font-size: 37px;
-      }
-      .title, .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 587px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9B9B9B;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
+  <div className="container">
+    <div className="row">
+
+      <div className="col-lg-3">
+
+        <h1 className="my-4">Shop Name</h1>
+        <div className="list-group">
+          <a href="#" className="list-group-item">Category 1</a>
+          <a href="#" className="list-group-item">Category 2</a>
+          <a href="#" className="list-group-item">Category 3</a>
+        </div>
+
+      </div>
+
+      <div className="col-lg-9">
+        <div id="carouselExampleIndicators" className="carousel slide my-4" data-ride="carousel">
+          <ol className="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div className="carousel-inner" role="listbox">
+            <div className="carousel-item active">
+              <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide" />
+            </div>
+            <div className="carousel-item">
+              <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide" />
+            </div>
+            <div className="carousel-item">
+              <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide" />
+            </div>
+          </div>
+          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div className="row">
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item One</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item Two</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item Three</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item Four</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item Five</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
+              <div className="card-body">
+                <h4 className="card-title">
+                  <a href="#">Item Six</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer className="py-5 bg-dark">
+    <div className="container">
+      <p className="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+  </footer>
+
   </div>
 );
