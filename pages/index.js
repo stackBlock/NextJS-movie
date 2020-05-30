@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import SideMenu from "../components/sideMenu";
 import Carousel from "../components/carousel";
 import MovieList from "../components/movieList";
-import { getMovies, getNewMovies } from "../actions/index";
+import { getMovies, getNewMovies, getCatagories } from "../actions/index";
 
-const Home = ({ movies, images }) => {
-  // console.log(JSON.stringify(images))
-
+const Home = ({ movies, images, catagories}) => {
   return (
     <div>
       <div className="home-page">
         <div className="container" style={{ paddingTop: 25 }}>
           <div className="row">
             <div className="col-lg-3">
-              <SideMenu appName={"Movie DB"} />
+              <SideMenu 
+              catagories={catagories}
+              appName={"Movie DB"} 
+              />
             </div>
             <div className="col-lg-9">
               <Carousel images={images} />
@@ -41,6 +42,7 @@ Home.getInitialProps = async () => {
   var images = [];
   const movies = await getMovies();
   const newMovies = await getNewMovies();
+  const catagories = await getCatagories();
   movies.map((movie) => {
     images.push({
       id: `image-${movie.id}`,
@@ -51,12 +53,13 @@ Home.getInitialProps = async () => {
   newMovies.map((movie) => {
     images.push({
       id: `image-${movie.id}`,
-      url: `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
+      url: `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`,
       name: movie.title,
     });
   });
   return {
     movies,
     images,
+    catagories
   };
 };
