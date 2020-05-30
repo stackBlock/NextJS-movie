@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import SideMenu from "../components/sideMenu";
 import Carousel from "../components/carousel";
 import MovieList from "../components/movieList";
-import { getMovies } from "../actions/index";
+import { getMovies, getNewMovies } from "../actions/index";
 
-const Home = ({ movies }) => {
-  /////////////////////////////////////////////
+const Home = ({ movies, images }) => {
+  // console.log(JSON.stringify(images))
 
   return (
     <div>
@@ -16,7 +16,7 @@ const Home = ({ movies }) => {
               <SideMenu appName={"Movie DB"} />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel images={images} />
               <div className="row">
                 <MovieList movies={movies || []} />
               </div>
@@ -38,9 +38,25 @@ const Home = ({ movies }) => {
 export default Home;
 
 Home.getInitialProps = async () => {
+  var images = [];
   const movies = await getMovies();
+  const newMovies = await getNewMovies();
+  movies.map((movie) => {
+    images.push({
+      id: `image-${movie.id}`,
+      url: movie.cover,
+      name: movie.name,
+    });
+  });
+  newMovies.map((movie) => {
+    images.push({
+      id: `image-${movie.id}`,
+      url: `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
+      name: movie.title,
+    });
+  });
   return {
     movies,
+    images,
   };
 };
-
