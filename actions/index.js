@@ -388,6 +388,28 @@ const NEW_MOVIES = [
   },
 ];
 
+const CATAGORY_DATA = [
+  {
+    id: "1",
+    name: "Drama",
+  },
+  { id: "2", name: "Action" },
+  { id: "3", name: "Adventure" },
+  { id: "4", name: "Historical" },
+];
+
+// 1. getCategories function
+// 2. get catagoiries in index page
+// 3. provide catagories to sidemenu
+// 4. in sidemenu iterate catagories and display them
+
+export const getCatagories = () => {
+  return new Promise((resolve, reject) => {
+    resolve(CATAGORY_DATA);
+    reject("Cannot Fetch Movie Data");
+  });
+};
+
 export const getMovies = () => {
   return new Promise((resolve, reject) => {
     resolve(MOVIE_DATA);
@@ -417,5 +439,3 @@ export const getNewMovieById = (id) => {
     resolve(newMovie);
   });
 };
-
-
