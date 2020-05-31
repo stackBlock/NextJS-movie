@@ -11,6 +11,7 @@ const Carousel = (props) => {
       <ol className="carousel-indicators">
         {images.map((image, index) => (
           <li
+            key={image.id}
             data-target="#carouselExampleIndicators"
             data-slide-to={index}
             className={index === 0 ? "active" : ""}
@@ -20,6 +21,7 @@ const Carousel = (props) => {
       <div className="carousel-inner" role="listbox">
         {images.map((image, index) => (
           <div
+            key={image.id}
             className={`carousel-item ${index === 0 ? "active" : ""} `}
           >
             <img
