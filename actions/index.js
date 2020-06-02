@@ -439,3 +439,13 @@ export const getNewMovieById = (id) => {
     resolve(newMovie);
   });
 };
+
+export const createMovie = (movie) => {
+  return new Promise((resolve, reject) => {
+    // create id for movie
+    movie.id = Math.random().toString(36).substr(2,7)
+    MOVIE_DATA.push(movie)
+    resolve(MOVIE_DATA);
+    reject("Cannot Fetch Movie Data");
+  });
+};
