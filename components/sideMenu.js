@@ -1,15 +1,25 @@
 import { useState } from "react";
-import Modal from './modal'
-import MovieCreateForm from './movieCreateForm'
+import Modal from "./modal";
+import MovieCreateForm from "./movieCreateForm";
+import { createMovie } from "../actions/index";
 
-const SideMenu = ( {appName, catagories} ) => {
-  // const { cata } = props
+const SideMenu = (props) => {
+  const { catagories } = props
+  let modal = null;
+
+  const handleCreateMovie = (movie) => {
+    createMovie(movie).then((movies) => {
+      console.log(JSON.stringify(movies));
+      modal.closeModal();
+    });
+  };
+
   return (
     <div>
-      <Modal>
-      <MovieCreateForm />
+      <Modal ref={ele => modal = ele} hasSubmit={false}>
+        <MovieCreateForm handleFormSubmit={handleCreateMovie} />
       </Modal>
-      <h1 className="my-4">{appName}</h1>
+      <h1 className="my-4">{props.appName}</h1>
       <div className="list-group">
         {catagories.map((cat) => (
           <a key={cat.id} href="#" className="list-group-item">
@@ -21,7 +31,6 @@ const SideMenu = ( {appName, catagories} ) => {
   );
 };
 
-console.log(Modal)
+console.log(Modal);
 
 export default SideMenu;
-
