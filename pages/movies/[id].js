@@ -1,10 +1,17 @@
 import { useRouter } from "next/router";
-import { getMovieById } from "../../actions/index";
+import { getMovieById, deleteMovie } from "../../actions/index";
 
 const Movie = (props) => {
   const router = useRouter();
   const { id } = router.query;
   const { movie } = props;
+
+  const handleDeleteMovie = (id) => {
+    deleteMovie(id).then(() => {
+      // Handle then later
+      router.push('/')
+    });
+  };
   return (
     <div>
       <div className="jumbotron">
@@ -43,9 +50,17 @@ const Movie = (props) => {
           )}
         </div>
         <p>Release Year: {movie.releaseYear}</p>
-        <a className="btn btn-primary btn-lg" href="#" role="button">
+        <button className="btn btn-primary btn-lg mr-1" href="#" role="button">
           Learn more
-        </a>
+        </button>
+        <button
+          onClick={() => handleDeleteMovie(id)}
+          className="btn btn-danger btn-lg"
+          href="#"
+          role="button"
+        >
+          Delete
+        </button>
         <a>
           <img className="card-img-top" src={movie.image} alt="" />
         </a>
