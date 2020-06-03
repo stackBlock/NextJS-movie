@@ -4,22 +4,42 @@ import Carousel from "../components/carousel";
 import MovieList from "../components/movieList";
 import { getMovies, getNewMovies, getCatagories } from "../actions/index";
 
-const Home = ({ movies, images, catagories}) => {
+const Home = ({ movies, images, catagories }) => {
+  const [filter, setFilter] = useState("");
+
+  const changeCategory = (category) => {
+    setFilter(category);
+  };
+
+  const filterMovies = (movies) => {
+    if (filter == 'All Movies') {
+      return movies
+    }
+    return movies.filter((m) => {
+      return m.genre && m.genre.includes(filter.toLowerCase());
+    });
+  };
+
   return (
     <div>
       <div className="home-page">
         <div className="container" style={{ paddingTop: 25 }}>
           <div className="row">
             <div className="col-lg-3">
-              <SideMenu 
-              catagories={catagories}
-              appName={"Movie DB"} 
+              <SideMenu
+                changeCategory={changeCategory}
+                activeCategory={filter}
+                catagories={catagories}
+                appName={"Movie DB"}
               />
             </div>
             <div className="col-lg-9">
               <Carousel images={images} />
+              <h1 className="text-center" >{`Displaying ${
+                filter !== "All Movies" ? filter : "All"
+              } Movies`}</h1>
               <div className="row">
-                <MovieList movies={movies || []} />
+                <MovieList movies={filterMovies(movies) || []} />
               </div>
             </div>
           </div>
@@ -60,6 +80,6 @@ Home.getInitialProps = async () => {
   return {
     movies,
     images,
-    catagories
+    catagories,
   };
 };

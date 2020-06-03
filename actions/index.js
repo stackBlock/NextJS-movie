@@ -347,6 +347,10 @@ const NEW_MOVIES = [
 
 const CATAGORY_DATA = [
   {
+    id: "0",
+    name: "All Movies"
+  },
+  {
     id: "1",
     name: "Drama",
   },
@@ -402,5 +406,14 @@ export const createMovie = (movie) => {
 export const deleteMovie = (id) => {
   return axios
     .delete(`${BASE_URL}/api/v1/movies/${id}`)
+    .then((res) => res.data);
+};
+
+
+
+
+export const getPosts = () => {
+  return axios
+    .get(`${BASE_URL}/api/v1/posts`)
     .then((res) => res.data);
 };

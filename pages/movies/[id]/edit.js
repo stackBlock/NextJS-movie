@@ -1,5 +1,5 @@
 import React from "react";
-import Router from 'next/router'
+import Router from "next/router";
 import MovieCreateForm from "../../../components/movieCreateForm";
 import { getMovieById, updateMovie } from "../../../actions";
 
@@ -12,7 +12,7 @@ class EditMovie extends React.Component {
 
   handleUpdateMovie = (movie) => {
     updateMovie(movie).then((updatedMovie) => {
-      Router.push('/movies/[id]', `/movies/${movie.id}`)
+      Router.push("/movies/[id]", `/movies/${movie.id}`);
     });
   };
 
@@ -21,7 +21,6 @@ class EditMovie extends React.Component {
     return (
       <div className="container">
         <h1>Edit the Movie</h1>
-        {JSON.stringify(movie)}
 
         <MovieCreateForm
           initialData={movie}
