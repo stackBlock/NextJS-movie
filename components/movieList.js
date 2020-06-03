@@ -12,7 +12,7 @@ class MovieList extends React.Component {
   renderMovies(movies) {
     return movies.map((movie) => 
     (
-      <div className="col-lg-4 col-md-6 mb-4" key={movie.id}>
+      <div className="col-lg-4 col-md-6 mb-4" key={`${movie.id}a`}>
         <Link href="/movies/[id]" as={`/movies/${movie.id}`}>
         <div className="card h-100">
           <a>
