@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MovieCreateForm = (props) => {
-
   // fix uncontrolled data
-  const [form, setForm] = useState({
+  // const [isInitialDataLoaded, setIsInitialDataLoaded] = useState(false);
+
+  const defaultData = {
     name: "",
     description: "",
-    rating: '',
-    image: '',
-    cover: '',
-    longDesc: ''
-  });
+    rating: "",
+    image: "",
+    cover: "",
+    longDesc: ""
+  }
+
+  const formData = props.initialData ? {...props.initialData} : defaultData
+
+  const [form, setForm] = useState(formData);
+
+  // useEffect(() => {
+  //   if (props.initialData) {
+  //     setForm(props.initialData);
+  //     console.log;
+      
+  //   }
+  // }, );
 
   const handleChange = () => {
     const target = event.target;
@@ -55,7 +68,7 @@ const MovieCreateForm = (props) => {
           className="form-control"
           id="name"
           aria-describedby="emailHelp"
-          placeholder="Lord of the Rings"
+          // placeholder="Lord of the Rings"
         />
       </div>
       <div className="form-group">
@@ -67,7 +80,7 @@ const MovieCreateForm = (props) => {
           type="text"
           className="form-control"
           id="description"
-          placeholder="Somewhere in Middle-earth..."
+          // placeholder="Somewhere in Middle-earth..."
         />
       </div>
       <div className="form-group">
@@ -137,9 +150,11 @@ const MovieCreateForm = (props) => {
           <option>action</option>
         </select>
       </div>
-      <button onClick={submitForm} type="button" className="btn btn-primary">
-        Create Movie
+    
+      <button onClick={submitForm} type="button" className="m-3 btn btn-primary">
+        {props.initialData ? 'Update Movie' : 'Create Movie' }
       </button>
+  
     </form>
   );
 };
