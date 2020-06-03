@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "The Shawshank Redemption",
+    "name": "The Shawshank Redemption ",
     "releaseYear": 1994,
     "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
     "longDesc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque non nobis, impedit veritatis quia, consectetur velit ea error ducimus totam ipsam, nisi dolorem voluptatum ut perspiciatis ex quidem nesciunt assumenda.",
@@ -33,10 +33,13 @@
     "image": "https://img.cinemablend.com/filter:scale/quill/0/f/5/2/a/6/0f52a6843a25c1a5c1f9a0c00548cad9e1d912e2.jpg?mw=600"
   },
   {
-    "name": "The Shawshank Redemption two",
-    "releaseYear": 19954,
-    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    "longDesc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque non nobis, impedit veritatis quia, consectetur velit ea error ducimus totam ipsam, nisi dolorem voluptatum ut perspiciatis ex quidem nesciunt assumenda.",
-    "rating": 4.8
+    "name": "New movie Update",
+    "description": "new description update",
+    "rating": "2",
+    "image": "new image variable",
+    "cover": "New cover variable",
+    "longDesc": "Long description",
+    "[object HTMLSelectElement]": "drama,music,adventure",
+    "id": "9w9vxdj"
   }
 ]
